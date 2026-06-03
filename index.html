@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Titan+One&display=swap" rel="stylesheet">
+
+<style type="text/tailwindcss">
+  @theme {
+    --font-sans: 'Red Hat Text', sans-serif;
+  }
+</style>
+
+<style>
+  .product-action-wrapper {
+    width: 160px;
+  }
+
+  .add-to-cart-btn,
+  .quantity-controls {
+    min-width: 160px;
+    width: 160px;
+  }
+
+  .add-to-cart-btn {
+    justify-content: center;
+  }
+</style>
+
+  <title>Frontend Mentor | Product list with cart</title>
+
+</head>
+<body class="bg-[#FCF8F6] text-[#260F08] font-sans">
+  <main class="min-h-screen p-6 md:p-10 xl:px-28 xl:py-22">
+  <div class="mx-auto flex max-w-[1216px] flex-col items-start gap-8 lg:flex-row lg:gap-10">
+
+    
+    <section class="flex-1">
+      <h1 class="mb-8 text-4xl font-bold md:text-[2.5rem]">Desserts</h1>
+      
+      <div class="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-3">
+
+        <!-- 1: Waffle -->
+        <div class="flex flex-col">
+  <div class="relative mb-9">
+    <img
+      src="./assets/images/image-waffle-desktop.jpg"
+      alt="Waffle"
+      class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]"
+    >
+
+    <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+      <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+        <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+        Add to Cart
+      </button>
+
+      <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+        <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+          -
+        </button>
+
+        <span class="quantity text-sm font-semibold">1</span>
+
+        <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-sm text-[#87635A]">Waffle</p>
+  <h4 class="text-base font-semibold">Waffle with Berries</h4>
+  <p class="text-base font-semibold text-[#C73B0F]">$6.50</p>
+</div>
+
+        <!-- 2: Crème Brûlée -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-creme-brulee-desktop.jpg" alt="Crème Brûlée" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Crème Brûlée</p>
+          <h4 class="text-base font-semibold">Vanilla Bean Crème Brûlée</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$7.00</p>
+        </div>
+
+        <!-- 3: Macaron -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-macaron-desktop.jpg" alt="Macaron" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Macaron</p>
+          <h4 class="text-base font-semibold">Macaron Mix of Five</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$8.00</p>
+        </div>
+
+        <!-- 4: Tiramisu -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-tiramisu-desktop.jpg" alt="Tiramisu" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Tiramisu</p>
+          <h4 class="text-base font-semibold">Classic Tiramisu</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$5.50</p>
+        </div>
+
+        <!-- 5: Baklava -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-baklava-desktop.jpg" alt="Baklava" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Baklava</p>
+          <h4 class="text-base font-semibold">Pistachio Baklava</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$4.00</p>
+        </div>
+
+        <!-- 6: Lemon Meringue Pie -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-meringue-desktop.jpg" alt="Pie" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Pie</p>
+          <h4 class="text-base font-semibold">Lemon Meringue Pie</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$5.00</p>
+        </div>
+
+        <!-- 7: Red Velvet Cake -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-cake-desktop.jpg" alt="Cake" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Cake</p>
+          <h4 class="text-base font-semibold">Red Velvet Cake</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$4.50</p>
+        </div>
+
+        <!-- 8: Brownie -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-brownie-desktop.jpg" alt="Brownie" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Brownie</p>
+          <h4 class="text-base font-semibold">Salted Caramel Brownie</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$4.50</p>
+        </div>
+
+        <!-- 9: Panna Cotta -->
+        <div class="flex flex-col">
+          <div class="relative mb-9">
+            <img src="./assets/images/image-panna-cotta-desktop.jpg" alt="Panna Cotta" class="aspect-[251/240] w-full rounded-xl border-2 border-transparent object-cover transition-colors hover:border-[#C73B0F]">
+            <div class="product-action-wrapper absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+              <button class="add-to-cart-btn flex items-center gap-2 whitespace-nowrap rounded-full border border-[#AD8A85] bg-white px-6 py-3 font-semibold text-[#260F08] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-colors hover:border-[#C73B0F] hover:text-[#C73B0F]">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="h-5 w-5">
+                Add to Cart
+              </button>
+
+              <div class="quantity-controls hidden items-center justify-between rounded-full bg-[#C73B0F] px-3 py-3 text-white min-w-[160px]">
+                <button class="decrease-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  -
+                </button>
+
+                <span class="quantity text-sm font-semibold">1</span>
+
+                <button class="increase-btn flex h-5 w-5 items-center justify-center rounded-full border border-white text-sm">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-[#87635A]">Panna Cotta</p>
+          <h4 class="text-base font-semibold">Vanilla Panna Cotta</h4>
+          <p class="text-base font-semibold text-[#C73B0F]">$6.50</p>
+        </div>
+
+      </div>
+
+
+
+    </section>
+
+    <aside class="w-full rounded-2xl bg-white p-6 shadow-sm lg:w-96">
+      <h2 class="mb-6 text-2xl font-bold text-[#C73B0F]">Your Cart (<span>0</span>)</h2>
+      <div class="flex min-h-64 flex-col items-center justify-center gap-4 py-4 text-center">
+        <img src="./assets/images/illustration-empty-cart.svg" alt="a tasty cake slice" class="w-32">
+        <p class="font-semibold text-[#87635A]">Your added items will appear here</p>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Roberta Marceddu</a>.
+  </div>
+  <script src="./script.js" defer></script>
+</body>
+</html>
