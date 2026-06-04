@@ -19,6 +19,13 @@ const increaseButtons = document.querySelectorAll(".increase-btn");
 const cartCount = document.querySelector("aside h2 span");
 const cartContent = document.querySelector("aside > div");
 
+// Order confirmation modal / Finestra di conferma ordine
+// The modal is hidden by default and receives its item list from the cart state.
+// Il modal e' nascosto di default e riceve la lista prodotti dallo stato del carrello.
+const orderModal = document.querySelector("#order-modal");
+const confirmedItems = document.querySelector("#confirmed-items");
+const startNewOrderButton = document.querySelector("#start-new-order-btn");
+
 // Load product catalog / Carica il catalogo prodotti
 // After the JSON is available, attach events and render the initial empty cart.
 // Dopo aver ricevuto il JSON, collega gli eventi e mostra il carrello vuoto iniziale.
@@ -38,6 +45,7 @@ fetch("./data.json")
 // Ogni bottone usa il proprio indice come id prodotto, perche' data.json non ha un id esplicito.
 function initializeApp() {
   setupProductButtons();
+  setupCartActions();
   renderCart();
 }
 
@@ -55,6 +63,18 @@ function setupProductButtons() {
       removeOneFromCart(i);
     });
   }
+}
+
+function setupCartActions() {
+  cartContent.addEventListener("click", (event) => {
+    if (event.target.closest(".confirm-order-btn") !== null) {
+      showOrderModal();
+    }
+  });
+
+  startNewOrderButton.addEventListener("click", () => {
+    resetOrder();
+  });
 }
 
 // Add one product to the cart / Aggiunge un prodotto al carrello
@@ -223,7 +243,7 @@ function renderCart() {
         <p>This is a <span class="font-bold">carbon-neutral</span> delivery</p>
       </div>
 
-      <button class="w-full rounded-full bg-[#C73B0F] py-4 font-semibold text-white transition-colors hover:bg-[#952C0C]">
+      <button class="confirm-order-btn w-full rounded-full bg-[#C73B0F] py-4 font-semibold text-white transition-colors hover:bg-[#952C0C] focus:outline-none focus:ring-2 focus:ring-[#1EA575] focus:ring-offset-2">
         Confirm Order
       </button>
     </div>
@@ -233,6 +253,72 @@ function renderCart() {
   cartContent.innerHTML = cartHTML;
 }
 
+// Show confirmation modal / Mostra il modal di conferma
+// The modal reads the final order from cart, so it always matches the current state.
+// Il modal legge l'ordine finale da cart, quindi resta sempre allineato allo stato corrente.
+function showOrderModal() {
+  if (cart.length === 0) {
+    return;
+  }
+
+  renderConfirmedItems();
+  orderModal.classList.remove("hidden");
+  orderModal.classList.add("flex");
+}
+
+function renderConfirmedItems() {
+  let confirmedHTML = "";
+
+  for (const item of cart) {
+    const itemTotal = item.price * item.quantity;
+
+    confirmedHTML += `
+      <div class="flex items-center gap-4 border-b border-[#F5EEEC] py-4 first:pt-0">
+        <img src="${item.image}" alt="" class="h-12 w-12 rounded object-cover">
+
+        <div class="min-w-0 flex-1">
+          <h3 class="truncate text-sm font-semibold text-[#260F08]">${item.name}</h3>
+          <div class="mt-1 flex gap-3 text-sm">
+            <span class="font-semibold text-[#C73B0F]">${item.quantity}x</span>
+            <span class="text-[#87635A]">@ $${item.price.toFixed(2)}</span>
+          </div>
+        </div>
+
+        <strong class="text-sm text-[#260F08]">$${itemTotal.toFixed(2)}</strong>
+      </div>
+    `;
+  }
+
+  confirmedHTML += `
+    <div class="flex items-center justify-between pt-6">
+      <span class="text-sm text-[#260F08]">Order Total</span>
+      <strong class="text-2xl text-[#260F08]">$${getOrderTotal().toFixed(2)}</strong>
+    </div>
+  `;
+
+  confirmedItems.innerHTML = confirmedHTML;
+}
+
+function hideOrderModal() {
+  orderModal.classList.add("hidden");
+  orderModal.classList.remove("flex");
+}
+
+function resetOrder() {
+  cart = [];
+  resetProductControls();
+  renderCart();
+  hideOrderModal();
+}
+
+function resetProductControls() {
+  for (let i = 0; i < addButtons.length; i++) {
+    quantityLabels[i].textContent = "1";
+    addButtons[i].classList.remove("hidden");
+    quantityControls[i].classList.add("hidden");
+    quantityControls[i].classList.remove("flex");
+  }
+}
 // Count all items / Conta tutti gli elementi
 // Sums quantities, so two waffles count as 2 items.
 // Somma le quantita', quindi due waffle contano come 2 elementi.

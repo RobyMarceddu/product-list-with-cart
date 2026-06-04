@@ -325,6 +325,19 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Roberta Marceddu</a>.
   </div>
+  <div id="order-modal" class="hidden fixed inset-0 z-50 items-end justify-center bg-black/40 md:items-center md:p-6" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+    <div class="max-h-[90vh] w-full overflow-y-auto rounded-t-xl bg-white p-6 md:max-w-[592px] md:rounded-xl md:p-10">
+      <img src="./assets/images/icon-order-confirmed.svg" alt="" class="mb-6 h-12 w-12">
+      <h2 id="order-modal-title" class="text-4xl font-bold leading-tight text-[#260F08]">Order Confirmed</h2>
+      <p class="mt-2 text-[#87635A]">We hope you enjoy your food!</p>
+
+      <div id="confirmed-items" class="my-8 rounded-lg bg-[#FCF8F6] p-6"></div>
+
+      <button id="start-new-order-btn" class="w-full rounded-full bg-[#C73B0F] py-4 font-semibold text-white transition-colors hover:bg-[#952C0C] focus:outline-none focus:ring-2 focus:ring-[#1EA575] focus:ring-offset-2">
+        Start New Order
+      </button>
+    </div>
+  </div>
   <script src="./script.js" defer></script>
 </body>
 </html>
