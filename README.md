@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/interactive-product-cart-with-vanilla-javascript-and-tailwind-css-3UNrcgWJ1w)
+- Live Site URL: [Add live site URL here](https://vercel.com/robymarceddus-projects/product-list-with-cart)
 
 ## My process
 
@@ -75,7 +75,7 @@ I used AI as a learning partner while debugging layout issues and JavaScript eve
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@RobyMarceddu](https://www.frontendmentor.io/profile/RobyMarceddu)
 
 ## Acknowledgments
 
